@@ -1,0 +1,60 @@
+<div class="loading" *ngIf="loading">
+    <img src="assets/img/investigadores_loading.gif" />
+</div>
+
+<div class="paper" *ngIf="!loading">
+    <h1>{{ investigador.nombre }} {{ investigador.apellidos }}</h1>
+    <img src="data:image/jpg;base64,{{ investigador.foto }}" class="perfil" />
+    <ul>
+        <li>{{ investigador.dni }}</li>
+        <li>+34 {{ investigador.telefono }}</li>
+        <li>{{ investigador.email }}</li>
+    </ul>
+
+    <div *ngIf="investigador.especialidades?.length > 0 && (id_Rol != 3)" class="detalles">
+        <a *ngIf="id_invest == investigador.id" routerLink="/especialidad-add" routerLinkActive
+            class="move">ESPECIALIDAD</a>
+
+        <a *ngIf="id_invest != investigador.id">ESPECIALIDAD</a>
+
+        <div class="container especialidades">
+            <div class="row" *ngFor="let especialidad of investigador.especialidades">
+                <div class="col">{{ especialidad.nombre }}</div>
+                <div class="col">{{ especialidad.nivel_experiencia }}</div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="investigador.especialidades?.length < 1 && (id_Rol != 3)" class="detalles">
+        <a *ngIf="id_invest == investigador.id" routerLink="/especialidad-add" routerLinkActive
+            class="move">ESPECIALIDAD</a>
+
+        <a *ngIf="id_invest != investigador.id ">ESPECIALIDAD</a>
+
+        <p>Aun no tienen ninguna especialidad</p>
+    </div>
+
+    <div *ngIf="investigador.sucesos?.length > 0 && (id_Rol != 3)" class="detalles">
+        <a *ngIf="id_invest == investigador.id" routerLink="/suceso-add" routerLinkActive class="move">SUCESOS</a>
+
+        <a *ngIf="id_invest != investigador.id ">SUCESOS</a>
+
+        <div class="container" *ngFor="let suceso of investigador.sucesos">
+            <div class="row">
+                <div class="col" class="titulo">{{ suceso.nombre }}</div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>{{ suceso.descripcion }} <small>{{ suceso.lugar }}, {{ suceso.fecha }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="investigador.sucesos?.length < 1 && (id_Rol != 3)" class="detalles">
+        <a *ngIf="id_invest == investigador.id" routerLink="/suceso-add" routerLinkActive class="move">SUCESOS</a>
+
+        <a *ngIf="id_invest != investigador.id ">SUCESOS</a>
+        <p>Aun no han descubierto ningún suceso</p>
+    </div>
+</div>
+
+<img src="assets/img/back.png" routerLink="/investigadores" routerLinkActive class="back" />

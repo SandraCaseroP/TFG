@@ -1,0 +1,24 @@
+<div id="divmapa"></div>
+
+<div class="contenedor">
+    <div class="box">
+        <h3>LISTADO DE LUGARES</h3>
+
+        <ul>
+            <li *ngFor="let popup of popups">
+                <span>{{ popup.id }}</span>
+                {{ popup.titulo }}
+                <div class="option" *ngIf="id_Rol == 1 || id_Rol == 2">
+                    <img src="assets/img/refresh.png" routerLink="/lugar-actualizar/{{ popup.id }}" />
+                    <img src="assets/img/trash.png" routerLink="/lugar-delete/{{ popup.id }}" />
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm columna" *ngIf="id_Rol == 1 || id_Rol == 2">
+            <img src="assets/img/plus.png" routerLink="/lugar-add" title="Añadir Lugar" />
+        </div>
+    </div>
+</div>

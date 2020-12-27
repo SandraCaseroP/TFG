@@ -1,0 +1,44 @@
+<div class="formulario">
+    <h5 class="header">A continuación recogeremos los datos del lugar del suceso....</h5>
+    <form #lugarsuceso="ngForm" class="text-center">
+
+        <div class="form-group">
+            <input type="text" required [(ngModel)]="lugar.titulo" name="titulo" #titulo="ngModel"
+                placeholder="Titulo del suceso" class="form-control">
+            <div [hidden]="titulo.valid || titulo.pristine" class="alert alert-danger">
+                El titulo es obligatorio
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="tipo" class="tipo">SELECCIONE EN EL MAPA EL LUGAR DEL SUCESO</label>
+            <input type="text" required [(ngModel)]="lugar.latitud" name="latitud" #latitud="ngModel"
+                placeholder="Latitud del suceso" class="form-control">
+            <div [hidden]="latitud.valid || latitud.pristine" class="alert alert-danger">
+                La latitud es obligatoria
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input type="text" [(ngModel)]="lugar.longitud" name="longitud" #longitud="ngModel"
+                placeholder="Longitud del suceso" class="form-control">
+            <div [hidden]="longitud.valid || longitud.pristine" class="alert alert-danger">
+                La longitud es obligatoria
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div id="divmapa"></div>
+        </div>
+
+
+
+        <div class="botones">
+            <button type="submit" (click)="add()" [disabled]="!lugarsuceso.valid" class="pulse">
+                AÑADIR LUGAR
+            </button>
+            <button type="button" routerLink="/mapa" class="close">Cancelar</button>
+        </div>
+
+    </form>
+</div>

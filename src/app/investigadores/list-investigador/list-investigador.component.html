@@ -1,0 +1,17 @@
+<button type="button" class="tipos" *ngIf="id_Rol == 1" routerLink="/investigador-add" routerLinkActive="active">Añadir
+    Investigador</button>
+<div class="container">
+    <div class="card" *ngFor="let investigador of investigadores">
+        <div class="imgBx">
+            <img src="data:image/jpg;base64,{{ investigador.foto }}" alt="{{ investigador.nombre }}">
+        </div>
+        <div class="details">
+            <h2>
+                {{ investigador.nombre }} {{ investigador.apellidos }}<br>
+                <span>
+                    <a routerLink="/investigador-detalles/{{ investigador.id }}" routerLinkActive>Ver Más</a>
+                </span>
+            </h2>
+        </div>
+    </div>
+</div>

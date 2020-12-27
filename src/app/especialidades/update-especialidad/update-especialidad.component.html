@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="material-icons">&#8634;</i>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" class="modal-title">
+                    <label for="name">TIPO ESPECIALIDAD</label>
+                    <input type="text" class="form-control" value="{{ especialidad.nombre }}" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="nivel_experiencia">NIVEL ESPECIALIDAD </label>
+                    <input type="text" class="form-control" required [(ngModel)]="updateEspecialidad.nivel_experiencia"
+                        name="nivel_experiencia" #nivel_experiencia="ngModel">
+                    <div [hidden]="nivel_experiencia.valid || nivel_experiencia.pristine" class="alert alert-danger">
+                        El nivel de experiencia es obligatorio
+                    </div>
+                    <div class="alert alert-danger" *ngIf="alert">
+                        El nivel de experiencia solo puede ser "Master, Alto, Medio o Bajo"
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal" (click)="cancel()">
+                    Cancel
+                    <img src="assets/img/horror.png" />
+                </button>
+                <button type="button" class="btn btn-danger" (click)="update()">
+                    <img src="assets/img/ghost.png" />
+                    Aactualiza
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

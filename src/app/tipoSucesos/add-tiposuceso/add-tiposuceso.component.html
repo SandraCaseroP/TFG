@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="material-icons">&#43;</i>
+                </div>
+            </div>
+            <form #sucesos="ngForm">
+                <div class="modal-body">
+                    <div class="form-group" class="modal-title">
+                        <input type="text" required [(ngModel)]="tipoSuceso.nombre"
+                            placeholder="Nombre del tipo de suceso" name="nombre" #nombre="ngModel"
+                            class="form-control">
+                        <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+                            El nombre es obligatorio
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" required [(ngModel)]="tipoSuceso.definicion"
+                            placeholder="Definición del suceso" name="definicion" #definicion="ngModel"
+                            class="form-control">
+                        <div [hidden]="definicion.valid || definicion.pristine" class="alert alert-danger">
+                            La definición es obligatoria
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)="cancel()">
+                        Cancel
+                        <img src="assets/img/horror.png" />
+                    </button>
+                    <button type="submit" class="btn btn-danger" (click)="add()" [disabled]="!sucesos.valid">
+                        <img src="assets/img/ghost.png" />
+                        Aaañaaadee
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

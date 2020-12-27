@@ -1,0 +1,317 @@
+img{
+    cursor: pointer /* crosshair  */
+}
+
+/*************************** PARTE DEL BOTON ***************************/
+
+.tipos{
+    outline: 0;
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    color: #52C9A4;
+    border-radius: 3px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 2;
+    position: relative;
+    margin-left: 40%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.tipos:hover{
+    background-color: #acffde;
+    color: white;
+}
+
+/*************************** PARTE DE LOS DATOS ***************************/
+  
+.wrapper {
+    width: 100%;
+    min-height: 930px;
+    display: block;
+    position: relative;
+    background: #333333;
+    background-image: url("../../../assets/img/2.jpg");
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    padding-bottom: 50px;
+    height: auto;
+    margin-bottom: 1px;
+}
+
+.wrapper:after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111111;
+    display: block;
+    content: "";
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: .6;
+}
+
+.wrapper .container {
+    z-index: 2;
+    position: relative;
+}
+  
+.suceso-card {
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+
+.suceso-card .cover {
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    margin: 15px;
+    height: 44px;
+}
+
+.suceso-card .cover .info {
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    padding: 0 15px;
+    color: #777777;
+}
+
+.suceso-card .cover .info .going, .suceso-card .cover .info .suceso-left {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f3f3;
+    width: 50%;
+}
+
+.suceso-card .cover .info .going {
+    float: left;
+    width: 100%;
+}
+
+.suceso-card .info_suceso {
+    float: left;
+    max-width: 215px;
+}
+
+.suceso-card .info_suceso .info {
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #BBBBBB;
+    margin-bottom: 0;
+}
+
+.suceso-card .info_suceso .name {
+    font-weight: 400;
+    font-size: 22px;
+    margin-top: 5px;
+}
+
+.suceso-card .suceso {
+    float: left;
+}
+
+.suceso-card .option {
+    float: right;
+    text-align: right;
+}
+
+h5{
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 4.1;
+    color: inherit;
+}
+
+.suceso-card .option .from {
+    color: #BBBBBB;
+}
+
+.suceso-card .option .value {
+    font-size: 28px;
+    font-weight: 200;
+    color: #00bbff;
+    margin-top: -5px;
+}
+
+.suceso-card .option .value b {
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.suceso-card .list-unstyled {
+    max-height: 200px;
+    overflow-x: scroll;
+    background: #EEEEEE;
+    margin-bottom: 0;
+    box-shadow: inset 0px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.suceso-card .list-unstyled li {
+    border-bottom: 1px dotted #CCCCCC;
+    padding: 5px 30px;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+.suceso-card .list-unstyled li .btn-buy {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    padding: 8px 20px;
+    border-radius: 6px;
+    background: #00bbff;
+    border: 0;
+    opacity: 0;
+    color: white;
+    -webkit-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+    -moz-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+    -o-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+    -ms-transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+    transition: transform 300ms cubic-bezier(0.34, 2, 0.6, 1), box-shadow 300ms ease, opacity 300ms ease;
+}
+
+.suceso-card .list-unstyled li:hover .btn-buy {
+    opacity: 1;
+}
+
+.suceso-card .list-unstyled li:last-child {
+    border-bottom: none;
+}
+
+.suceso-card .list-unstyled li:before, .suceso-card .list-unstyled li:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+.suceso-card .list-unstyled li .option .value {
+    color: #444444;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.suceso-card .body {
+    padding: 5px 30px;
+}
+
+.suceso-card .body .info {
+    color: #777777;
+}
+
+.suceso-card .body .location, .suceso-card .body .date {
+    padding-top: 10px;
+    width: 50%;
+}
+
+.suceso-card .body .location {
+    float: left;
+}
+
+.suceso-card .body .date {
+    float: right;
+    text-align: right;
+}
+
+.suceso-card .footer .btn {
+    width: 100%;
+    background: transparent;
+    border-top: 1px dotted #BBBBBB;
+    border-radius: 0;
+    padding: 15px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666666;
+    box-shadow: none;
+}
+
+.suceso-card .footer .btn:focus, .suceso-card .footer .btn:hover, .suceso-card .footer .btn:active {
+    outline: none !important;
+}
+
+.img{
+    margin-top: -6px;
+    margin-right: 5px;
+    width: 20px;
+}
+
+label{
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.form-control{
+    padding: 15px;
+    border: 1px solid #a0b3b0;
+    background: none;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #ffffff;
+    font-size: 13px;
+    text-align: center;
+}
+
+::placeholder { 
+    color: rgba(255, 255, 255, 0.5); 
+}
+
+.form-control:focus{
+    color: #ffffff;
+    border-color: #1ab188;
+    outline: 0;
+    -webkit-box-shadow: 0 0 rgba(0,0,0,.075),0 0 0px #1ab188;
+    box-shadow: 0 0 rgba(0,0,0,.075),0 0 0px #1ab188;
+    font-weight: bold;
+    font-size: 1.7em;
+}
+
+.tipo{
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+}
+
+.filter{
+    width: 30%;
+    margin: 0 auto;
+    padding: 10px;
+    background: rgba(19, 35, 47, 0.9);
+    padding-top: 30px;
+    margin-top: -10px;
+}
+
+.loupe{
+    transform: scaleX(-1);
+    margin-left: 365px;
+    margin-top: 10px;
+
+    animation-name: parpadeo;
+    animation-duration: 2.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.loupeActive{
+    transform: scaleX(-1);
+    margin-left: 365px;
+    margin-top: 10px;
+}
+
+@keyframes parpadeo {  
+    0% { opacity: 1.0; }
+    25% { opacity: 0.5 }
+    50% { opacity: 0.0; }
+    75% { opacity: 0.5 }
+    100% { opacity: 1.0; }
+}

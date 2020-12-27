@@ -1,0 +1,41 @@
+<div class="contenedor">
+    <div class="box">
+        <h3>LISTADO DE TIPOS</h3>
+
+        <ul>
+            <li *ngFor="let tipo of tipos">
+                <span>{{ tipo.id }}</span>
+                {{ tipo.nombre }}
+
+                <ul>
+                    <li>{{ tipo.definicion }}</li>
+                </ul>
+                <div class="option" *ngIf="id_Rol == 1">
+                    <img src="assets/img/refresh.png" (click)="mostrarConfirmUpdate(tipo.id)" />
+                    <img src="assets/img/trash.png" (click)="mostrarConfirmDelete(tipo.id)" />
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm columna" *ngIf="id_Rol == 1">
+            <img src="assets/img/plus.png" (click)="mostrarConfirmAdd()" title="Añadir Tipo" />
+        </div>
+        <div class="col-sm columna">
+            <button type="button" class="tipos" routerLink="/sucesos" routerLinkActive>OCULTAR TIPOS</button>
+        </div>
+    </div>
+
+    <div *ngIf="visibleDelete">
+        <app-delete-tiposuceso [tipoId]="idTipo" (eliminado)="listTipoSucesos($event)"></app-delete-tiposuceso>
+    </div>
+
+    <div *ngIf="visibleUpdate">
+        <app-update-tiposuceso [tipoSucesoId]="idTipo" (actualizado)="listTipoSucesos($event)"></app-update-tiposuceso>
+    </div>
+
+    <div *ngIf="visibleAdd">
+        <app-add-tiposuceso (anadido)="listTipoSucesos($event)"></app-add-tiposuceso>
+    </div>
+</div>

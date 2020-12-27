@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let investEspec of especialidades_investigador">
+            <div class="profile profile-smallimg">
+                <div class="profile_image">
+                    <img src="data:image/jpg;base64,{{ investEspec.foto }}" />
+                </div>
+                <div class="profile_info">
+                    <h3>{{ investEspec.apellidos }}, {{ investEspec.nombre }}</h3>
+
+                    <div *ngIf="investEspec.id < 10">
+                        <p class="profile_info_extra">#00{{ investEspec.id }}</p>
+                    </div>
+                    <div *ngIf="investEspec.id >= 10">
+                        <p class="profile_info_extra">#0{{ investEspec.id }}</p>
+                    </div>
+                    <div *ngIf="investEspec.id >= 100">
+                        <p class="profile_info_extra">#{{ investEspec.id }}</p>
+                    </div>
+                    <div class="boton" id="btn{{ investEspec.id }}" (click)="showDiv(investEspec.id)">
+                        <img src="assets/img/arrow.png" class="img" id="img{{ investEspec.id }}" />
+                    </div>
+                </div>
+                <div id="{{ investEspec.id }}" style="display: none;">
+                    <div class="profile_stats" *ngFor="let especialidad of investEspec.especialidades">
+                        <p class="profile_stats_title"><i>&#8594;</i> {{ especialidad.nombreEspecialidad }}</p>
+                        <h5 class="profile_stats_info">{{ especialidad.nivel_experiencia }}</h5>
+
+                        <div class="options" *ngIf="id_user == investEspec.id || idRol == 1">
+
+                            <img src="assets/img/refresh.png" (click)="mostrarConfirmUpdate(especialidad.id)"
+                                class="option" />
+                            <img src="assets/img/trash.png" (click)="mostrarConfirmDelete(especialidad.id)"
+                                class="option" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="tipos" routerLink="/tipos-especialidades" routerLinkActive>MOSTRAR
+        ESPECIALIDADES</button>
+
+    <div *ngIf="visibleUpdate">
+        <app-update-especialidad [especialidadId]="idEspecialidadInvest"
+            (actualizado)="listEspecialidadesInvest($event)"></app-update-especialidad>
+    </div>
+
+    <div *ngIf="visibleDelete">
+        <app-delete-especialidad [especialidadInvestId]="idEspecialidadInvest"
+            (eliminado)="listEspecialidadesInvest($event)"></app-delete-especialidad>
+    </div>
+</div>

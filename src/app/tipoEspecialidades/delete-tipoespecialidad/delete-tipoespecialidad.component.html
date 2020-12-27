@@ -1,0 +1,41 @@
+<div class="container" *ngIf="!oculto">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&times;</i>
+				</div>
+			</div>
+			<div class="modal-body">
+				<h4 class="modal-title">{{ especialidad.nombre }}</h4>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal" (click)="cancel()">
+					Cancel
+					<img src="assets/img/horror.png" />
+				</button>
+				<button type="button" class="btn btn-danger" (click)="delete(especialidad.id)">
+					<img src="assets/img/ghost.png" />
+					Boorra
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container" *ngIf="!noBorrar">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&#33;</i>
+				</div>
+			</div>
+			<div class="modal-body">
+				<h4 class="modal-title">ALERT</h4>
+				<p>{{ especialidad.nombre }} ESTÁ EN USO</p>
+				<small>No puede ser borrado.</small>
+			</div>
+		</div>
+	</div>
+</div>

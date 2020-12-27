@@ -1,0 +1,118 @@
+.container{
+    width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-gap: 15px;
+    margin: 0 auto;
+}
+
+.card{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    background: rgb(19, 35, 47);
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow:0 2px 10px #999;
+    margin-bottom: 40px;
+    margin-top: 50px;
+}
+
+.card:before, .card:after{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: rgb(19, 35, 47);
+    transition: 0.5s;
+    z-index:-1;
+}
+
+.card:hover:before{
+    transform: rotate(20deg);
+    box-shadow: 0 2px 20px #999;
+}
+
+.card:hover:after{
+    transform: rotate(10deg);
+    box-shadow: 0 2px 20px #999;
+}
+
+.card .imgBx{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    background: #222;
+    transition: 0.5s;
+    z-index: 1;
+}
+  
+.card:hover .imgBx{
+    bottom: 80px;
+}
+
+.card .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card .details{
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 60px;
+    text-align: center;
+}
+
+.card .details h2{
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 15pt;
+    color: #777;
+    text-transform: uppercase;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+} 
+
+.card .details h2 span a{
+    font-weight: 500;
+    font-size: 16px;
+    color: #1ab188;
+    display: block;
+    margin-top: 5px;
+    text-decoration: none;
+} 
+
+/*************************** PARTE DEL BOTON ***************************/
+
+.tipos{
+    outline: 0;
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    color: #52C9A4;
+    border-radius: 3px;
+    width: 250px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 2;
+    position: relative;
+    margin-left: 40%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.tipos:hover{
+    background-color: #acffde;
+    color: white;
+}

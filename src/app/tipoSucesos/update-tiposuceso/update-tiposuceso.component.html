@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="icon-box">
+                    <i class="material-icons">&#8634;</i>
+                </div>
+            </div>
+            <form #sucesos="ngForm">
+                <div class="modal-body">
+                    <div class="form-group" class="modal-title">
+                        <label for="nombre">TIPO DE SUCESO </label>
+                        <input type="text" required [(ngModel)]="tipoSuceso.nombre" name="nombre" #nombre="ngModel"
+                            class="form-control">
+                        <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+                            El nombre es obligatorio
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="definicion">DEFINICIÓN DEL SUCESO </label>
+                        <input type="text" required [(ngModel)]="tipoSuceso.definicion" name="definicion"
+                            #definicion="ngModel" class="form-control">
+                        <div [hidden]="definicion.valid || definicion.pristine" class="alert alert-danger">
+                            La definición es obligatoria
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)="cancel()">
+                        Cancel
+                        <img src="assets/img/horror.png" />
+                    </button>
+                    <button type="submit" class="btn btn-danger" (click)="update()" [disabled]="!sucesos.valid">
+                        <img src="assets/img/ghost.png" />
+                        Aactualiza
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

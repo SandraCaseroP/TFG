@@ -1,0 +1,215 @@
+@import url("../../styles.css");
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+    top: 35%;
+    position: fixed;
+    left: 7%;
+    height: auto;
+}
+  
+#head {
+    position: relative;
+    background: rgba(19, 35, 47, 0.9);
+    height: 200px;
+    width: 200px;
+    border-radius: 100% 50% 40% 70% / 80% 50% 60% 50%;
+    
+    z-index: 10;
+    box-shadow: 0px 0px 10px 2px rgba(19, 35, 47, 0.3);
+}
+
+#head:hover{
+    animation: rotate 6s;
+}
+
+#head .left-eye {
+    position: absolute;
+    background: #1ab188;
+    top: 20%;
+    left: 20%;
+    height: 45px;
+    width: 40px;
+    border-radius: 60% 60% 50% 50%;
+    transform: rotateY(-30deg) rotateZ(30deg);
+}
+
+#head .right-eye {
+    position: absolute;
+    background: #1ab188;
+    top: 45%;
+    right: 8%;
+    height: 40px;
+    width: 45px;
+    border-radius: 80% 50% 70% 60%;
+    transform: rotateY(40deg) rotateZ(10deg);
+}
+
+#head .mouth {
+    position: absolute;
+    background: #1ab188;
+    bottom: 10%;
+    right: 50%;
+    height: 20px;
+    width: 15px;
+    border-radius: 80% 50% 70% 60%;
+    transform: rotateY(40deg) rotateZ(10deg);
+}
+  
+.body {
+    position: relative;
+    background: rgba(19, 35, 47, 0.9);
+    height: 150px;
+    width: 100px;
+    border-radius: 33% 33% 0 0;
+    box-shadow: 0px 5px 10px 2px rgba(19, 35, 47, 0.3);
+}
+
+.body .left-arm {
+    position: absolute;
+    background: rgba(19, 35, 47, 0.9);
+    left: -53%;
+    top: -18%;
+    height: 140px;
+    width: 30px;
+    border-radius: 70% 70% 80% 80%;
+    transform: rotateZ(68deg);
+    box-shadow: 0px 0px 10px 2px rgba(19, 35, 47, 0.3);
+    z-index: -10;
+}
+
+.body .right-arm {
+    position: absolute;
+    background: rgba(19, 35, 47, 0.9);
+    right: -53%;
+    top: -18%;
+    height: 140px;
+    width: 30px;
+    border-radius: 70% 70% 80% 80%;
+    transform: rotateZ(-72deg);
+    box-shadow: 0px 0px 10px 2px rgba(19, 35, 47, 0.3);
+    z-index: -10;
+}
+  
+@keyframes rotate {
+    0% {
+      transform: rotateZ(0deg);
+    }
+    25% {
+      transform: rotateZ(140deg);
+    }
+    35% {
+      transform: rotateZ(-70deg);
+    }
+    36% {
+      transform: rotateZ(-60deg);
+    }
+    37% {
+      transform: rotateZ(-65deg);
+    }
+    38% {
+      transform: rotateZ(-55deg);
+    }
+    39% {
+      transform: rotateZ(-60deg);
+    }
+    40% {
+      transform: rotateZ(-50deg);
+    }
+    41% {
+      transform: rotateZ(-55deg);
+    }
+    42% {
+      transform: rotateZ(-45deg);
+    }
+    43% {
+      transform: rotateZ(-50deg);
+    }
+    44% {
+      transform: rotateZ(-40deg);
+    }
+    45% {
+      transform: rotateZ(-45deg);
+    }
+    46% {
+      transform: rotateZ(-35deg);
+    }
+    47% {
+      transform: rotateZ(-40deg);
+    }
+    48% {
+      transform: rotateZ(-30deg);
+    }
+    49% {
+      transform: rotateZ(-35deg);
+    }
+    50% {
+      transform: rotateZ(-25deg);
+    }
+    51% {
+      transform: rotateZ(-30deg);
+    }
+    52% {
+      transform: rotateZ(-20deg);
+    }
+    53% {
+      transform: rotateZ(-25deg);
+    }
+    54% {
+      transform: rotateZ(-15deg);
+    }
+    55% {
+      transform: rotateZ(-20deg);
+    }
+    56% {
+      transform: rotateZ(-10deg);
+    }
+    57% {
+      transform: rotateZ(-15deg);
+    }
+    58% {
+      transform: rotateZ(-5deg);
+    }
+    59% {
+      transform: rotateZ(-10deg);
+    }
+    60% {
+      transform: rotateZ(0deg);
+    }
+    61% {
+      transform: rotateZ(-5deg);
+    }
+    62% {
+      transform: rotateZ(5deg);
+    }
+    63% {
+      transform: rotateZ(0deg);
+    }
+    64% {
+      transform: rotateZ(10deg);
+    }
+    65% {
+      transform: rotateZ(5deg);
+    }
+    66% {
+      transform: rotateZ(15deg);
+    }
+    85%,
+    100% {
+      transform: rotateZ(0deg);
+    }
+}
+
+h1{
+    font-family: DeadPack;
+    width: 58%;
+    margin: 0 auto;
+    color: rgba(19, 35, 47, 0.9);
+}
+
+.titulo {
+    margin-top: 30px;
+}

@@ -1,0 +1,164 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+.container{
+    width: 100%;
+}
+
+.profile {
+    position: relative;
+    background: rgba(19, 35, 47, 0.9);
+    color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+    border-radius: 10px;
+    transition: .2s ease;
+}
+
+.profile_stats_title {
+    color: rgb(179, 173, 173);
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile_stats_info{
+    color: rgb(179, 173, 173);
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+}
+
+i{
+    font-size: 21pt;
+    color: #1ab188;
+    margin-left: -20px;
+    font-weight: revert;
+}
+
+.profile_info_extra{
+    width: 20%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-size: 0.8em;
+    padding: 5px 10px;
+    margin: auto;
+    text-align: center;
+}
+
+.profile-default .profile_info {
+    grid-column: span 3;
+    margin: 20px 25px 0;
+}
+
+.profile-default .profile_stats {
+    margin: 5px 25px;
+}
+
+.profile-smallimg {
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    text-align: center;
+    margin-top: 30%;
+}
+
+.profile-smallimg .profile_image {
+    margin-top: -40px;
+}
+
+.profile-smallimg .profile_image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid transparent;
+    box-shadow: 0 0 0 7px #1ab188;
+}
+
+.profile-smallimg .profile_info {
+    margin: 10px 30px 15px;
+}
+
+.profile-smallimg .profile_stats {
+    margin: 0 30px 10px;
+}
+
+.options{
+    display:none;
+}
+
+.options .option{
+    cursor: pointer;
+}
+
+.profile_stats:hover .options{
+    display:block;
+}
+/*************************** PARTE DEL BOTON ***************************/
+.tipos{
+    outline: 0;
+    background-color: white;
+    border: 0;
+    padding: 10px 15px;
+    color: #52C9A4;
+    border-radius: 3px;
+    width: 251px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 40%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tipos:hover{
+    background-color: #acffde;
+    color: white;
+}
+
+.boton{
+    background-color: #1ab188;
+    width: 30px;
+    margin-left: 44%;
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.363);
+    padding-bottom: 2px;
+}
+
+.boton:hover{
+    background: #1ab188;
+    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.295);
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+    -webkit-transition: all 0.25s 0s ease-out;
+    transition: all 0.25s 0s ease-out;
+    padding-bottom: 3px;
+}
+
+.botonClose{
+    background-color: rgb(255, 87, 87);
+    width: 30px;
+    margin-left: 44%;
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.363);
+    padding-bottom: 2px;
+}
+
+.botonClose:hover{
+    background: rgb(255, 87, 87);
+    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.295);
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+    -webkit-transition: all 0.25s 0s ease-out;
+    transition: all 0.25s 0s ease-out;
+    padding-bottom: 3px;
+}
+
+.imgClose{
+    transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+}

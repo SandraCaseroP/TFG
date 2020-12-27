@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<div class="icon-box">
+					<i class="material-icons">&times;</i>
+				</div>
+			</div>
+			<div class="modal-body">
+				<h4 class="modal-title">¿SEGURO {{ userName }} QUE DESEAS BORRAR LA CUENTA?</h4>
+				<p>¡Debe borrar antes todos sus datos!</p>
+				<p>Si se va todo se va con usted</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal" (click)="cancel()">
+					Cancel
+					<img src="assets/img/horror.png" />
+				</button>
+				<button type="button" class="btn btn-danger" [disabled]="notAllowed" (click)="delete()"
+					id="botonBorrar">
+					<img src="assets/img/ghost.png" />
+					Boorra
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

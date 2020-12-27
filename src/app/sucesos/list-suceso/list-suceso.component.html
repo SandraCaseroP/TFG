@@ -1,0 +1,116 @@
+<div class="wrapper">
+    <div class="container">
+        <img src="assets/img/loupe.png" class="loupe" (click)="buscador()" id="lupa" />
+        <div class="filter" *ngIf="filtro">
+            <input type="text" [(ngModel)]="buscar.nombre" name="nombre" #nombre="ngModel" (keyup)="search()"
+                placeholder="Search investigador" class="form-control">
+            <input type="text" [(ngModel)]="buscar.tipo" name="tipo" #tipo="ngModel" (keyup)="search()"
+                placeholder="Search tipo" class="form-control">
+            <input type="text" [(ngModel)]="buscar.lugar" name="lugar" #lugar="ngModel" (keyup)="search()"
+                placeholder="Search lugar" class="form-control">
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let suceso of sucesos">
+                <div class="suceso-card">
+                    <div class="cover">
+                        <div class="info">
+                            <div class="going">
+                                <img src="assets/img/spy.png" class="img" />
+                                {{ suceso.apellidos_investigador }}, {{ suceso.nombre_investigador }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="body">
+
+                        <div class="info_suceso">
+                            <h6 class="info">{{ suceso.nombre_tipo }}</h6>
+                            <h4 class="name">{{ suceso.nombre }}</h4>
+                        </div>
+                        <div class="option">
+                            <div class="from">Donation</div>
+                            <div class="value">
+                                <b>€</b>{{ suceso.donacion }}
+                            </div>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div class="info">
+                            <p class="location">
+                                <img src="assets/img/local.png" class="img" />{{ suceso.lugar }}
+                            </p>
+                            <p class="date">
+                                <img src="assets/img/calendar.png" class="img" />{{ suceso.fecha | date:"d MMM, yyyy" }}
+                            </p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="collapse" id="{{ suceso.id }}" style="display: none;">
+                        <ul class="list-unstyled">
+
+                            <!-- UPDATE -->
+                            <li *ngIf="id_invest == suceso.id_investigador">
+                                <div class="suceso">
+                                    <h5>Update Suceso<br>
+                                    </h5>
+                                </div>
+                                <div class="option">
+                                    <div class="value">
+                                        <img src="assets/img/update.png" />
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-info btn-sm btn-buy"
+                                    routerLink="/suceso-update/{{ suceso.id }}" routerLinkActive>Do It!</a>
+                            </li>
+
+                            <!-- DELETE -->
+                            <li *ngIf="id_invest == suceso.id_investigador || idRol == 1">
+                                <div class="suceso">
+                                    <h5>Delete Suceso<br>
+                                    </h5>
+                                </div>
+                                <div class="option">
+                                    <div class="value">
+                                        <img src="assets/img/delete.png" />
+                                    </div>
+                                </div>
+                                <a class="btn btn-info btn-sm btn-buy" (click)="mostrarConfirm(suceso.id)">Do
+                                    It!</a>
+                            </li>
+
+                            <!-- DONACION -->
+                            <li *ngIf="idRol == 1 || idRol == 2 || idRol == 3">
+                                <div class="suceso">
+                                    <h5>Donacion<br>
+                                    </h5>
+                                </div>
+                                <div class="option">
+                                    <div class="value">
+                                        <img src="assets/img/money.png" /><!-- <------------- --->
+                                    </div>
+                                </div>
+                                <a class="btn btn-info btn-sm btn-buy" (click)="mostrarConfirmDonation(suceso.id)">Do
+                                    It!</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer">
+                        <button class="btn" id="btn{{ suceso.id }}" (click)="showDiv(suceso.id)"
+                            *ngIf="idRol == 1 || idRol == 2 || idRol == 3">SHOW OPTIONS</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <button type="button" class="tipos" routerLink="/tipos-sucesos" routerLinkActive>MOSTRAR TIPOS</button>
+</div>
+
+<div *ngIf="showDelete">
+    <app-delete-suceso [sucesoId]="idSuceso" (eliminado)="listSucesos($event)"></app-delete-suceso>
+</div>
+
+<div *ngIf="showDonation">
+    <app-donation-suceso [idSucesoDonacion]="idSuceso" (donado)="listSucesos($event)"></app-donation-suceso>
+</div>

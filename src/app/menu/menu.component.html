@@ -1,0 +1,100 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/">Paranormal Project</a>
+    <button class="navbar-toggler" type="button" (click)="navBar.isNavbarCollapsed = !navBar.isNavbarCollapsed"
+        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div [ngbCollapse]="navBar.isNavbarCollapsed" class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" routerLink="/" routerLinkActive="active">Inicio <span
+                    class="sr-only">(current)</span></a>
+
+            <a *ngIf="!navBar.login" class="nav-item nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+
+            <a *ngIf="navBar.login" class="nav-item nav-link" (click)="mostrarConfirm()" style="cursor: pointer;"
+                routerLinkActive="active">Logout</a>
+
+            <a class="nav-item nav-link active" routerLink="/investigadores"
+                routerLinkActive="active">Investigadores</a>
+            <!--Investigadores entra todo el mundo-->
+
+            <a class="nav-item nav-link active" routerLink="/sucesos" routerLinkActive="active">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Sucesos</span>
+            </a>
+
+            <a class="nav-item nav-link active" routerLink="/especialidades" routerLinkActive="active">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Especialidades</span>
+            </a>
+
+            <a class="nav-item nav-link active" routerLink="/mapa" routerLinkActive="active">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Mapa</span>
+            </a>
+
+            <li *ngIf="navBar.login" class="nav-item dropdown" style="margin-left: 50%">
+                <a class="nav-link dropdown-toggle" style="cursor: pointer;"
+                    (click)="navBar.user.dropdown = !navBar.user.dropdown" id="navbarDropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{navBar.usuario}}
+                </a>
+                <div [ngbCollapse]="navBar.user.dropdown" class="dropdown-menu"
+                    aria-labelledby="navbarDropdownMenuLink">
+
+                    <a class="dropdown-item" routerLink="/perfil/{{ navBar.idUser }}" routerLinkActive="active"
+                        (click)="navBar.user.dropdown = !navBar.user.dropdown">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Ver Perfil</span>
+                    </a>
+
+                    <a class="dropdown-item" routerLink="/investigador-update" routerLinkActive="active"
+                        (click)="navBar.user.dropdown = !navBar.user.dropdown">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Actualizar</span>
+                    </a>
+
+                    <a class="dropdown-item" routerLink="/delete-investigador" routerLinkActive="active"
+                        (click)="navBar.user.dropdown = !navBar.user.dropdown">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span><span>Borrar Perfil</span>
+                    </a>
+
+                </div>
+            </li>
+
+            <span *ngIf="navBar.login && navBar.id_rol == 1" class="nav-item nav-link">
+                <img src="assets/img/admin.png" />
+            </span>
+            <span *ngIf="navBar.login && navBar.id_rol == 2" class="nav-item nav-link">
+                <img src="assets/img/investigador.png" />
+            </span>
+            <span *ngIf="navBar.login && navBar.id_rol == 3" class="nav-item nav-link">
+                <img src="assets/img/aficionado.png" />
+            </span>
+
+        </div>
+    </div>
+</nav>
+
+<div *ngIf="logout">
+    <div class="container">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="icon-box">
+                        <i class="material-icons">EXIT</i>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <h4 class="modal-title">¿Deseas cerrar sesión?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal" (click)="cancel()">
+                        Cancel
+                        <img src="assets/img/horror.png" />
+                    </button>
+                    <button type="button" class="btn btn-danger" (click)="cerrarLogin()">
+                        <img src="assets/img/ghost.png" />
+                        Loogout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

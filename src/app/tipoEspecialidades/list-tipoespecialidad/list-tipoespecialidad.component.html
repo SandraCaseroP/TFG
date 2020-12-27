@@ -1,0 +1,40 @@
+<div class="contenedor">
+    <div class="box">
+        <h3>LISTADO DE TIPOS</h3>
+
+        <ul>
+            <li *ngFor="let especialidad of especialidades">
+                <span>{{ especialidad.id }}</span>
+                {{ especialidad.nombre }}
+                <div class="option" *ngIf="id_Rol == 1">
+                    <img src="assets/img/refresh.png" (click)="mostrarConfirmUpdate(especialidad.id)" />
+                    <img src="assets/img/trash.png" (click)="mostrarConfirmDelete(especialidad.id)" />
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm columna" *ngIf="id_Rol == 1">
+            <img src="assets/img/plus.png" (click)="mostrarConfirmAdd()" title="Añadir Tipo" />
+        </div>
+        <div class="col-sm columna">
+            <button type="button" class="tipos" routerLink="/especialidades" routerLinkActive>OCULTAR
+                ESPECIALIDADES</button>
+        </div>
+    </div>
+
+    <div *ngIf="visibleAdd">
+        <app-add-tipoespecialidad (anadido)="listarEspecialidades($event)"></app-add-tipoespecialidad>
+    </div>
+
+    <div *ngIf="visibleDelete">
+        <app-delete-tipoespecialidad [sucesoIdDelete]="sucesoId" (eliminado)="listarEspecialidades($event)">
+        </app-delete-tipoespecialidad>
+    </div>
+
+    <div *ngIf="visibleUpdate">
+        <app-update-tipoespecialidad [sucesoIdUpdate]="sucesoId" (actualizado)="listarEspecialidades($event)">
+        </app-update-tipoespecialidad>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="formulario">
+    <h5 class="header">Actualización del suceso....</h5>
+    <form #sucesos="ngForm" class="text-center">
+        <div class="form-group">
+            <label for="nombre" class="label">NOMBRE DEL SUCESO </label>
+            <input type="text" required [(ngModel)]="suceso.nombre" name="nombre" #nombre="ngModel"
+                class="form-control nombre">
+            <div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">
+                El nombre es obligatorio
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="lugar" class="label">LUGAR DEL SUCESO </label>
+            <input type="text" required [(ngModel)]="suceso.lugar" name="lugar" #lugar="ngModel"
+                class="form-control lugar">
+            <div [hidden]="lugar.valid || lugar.pristine" class="alert alert-danger">
+                El lugar es obligatorio
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="name" class="label">TIPO SUCESO</label>
+            <input type="text" class="form-control" value="{{ tipo_sucesos.nombre }}" readonly>
+        </div>
+
+        <div class="form-group">
+            <label for="fecha" class="label">FECHA DEL SUCESO</label>
+            <input type="date" required [(ngModel)]="suceso.fecha" name="fecha" #fecha="ngModel"
+                class="form-control fecha">
+            <div [hidden]="fecha.valid || fecha.pristine" class="alert alert-danger">
+                La fecha es obligatoria
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion" class="label">DESCRIPCION DEL SUCESO </label>
+            <input type="text" required [(ngModel)]="suceso.descripcion" name="descripcion"
+                placeholder="Descripción del suceso" #descripcion="ngModel" class="form-control">
+            <div [hidden]="descripcion.valid || descripcion.pristine" class="alert alert-danger">
+                El descripcion es obligatorio
+            </div>
+        </div>
+
+        <div class="botones">
+            <button type="submit" (click)="update()" [disabled]="!sucesos.valid" class="pulse">
+                EDITAR SUCESO
+            </button>
+            <button type="button" routerLink="/sucesos" class="close">Cancelar</button>
+        </div>
+
+    </form>
+</div>
