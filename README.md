@@ -2,10 +2,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
 
-# Install project dependencies
-
-Run `npm install` to install the project dependencies.
-
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -34,7 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Steps to run the project
 
 1º.- Clone this project.
-2º.- Do the npm install.
+2º.- Do the `npm install` to install the project dependencies..
 3º.- PHP folder put this folder inside C:/xampp/htdocs (for this u need xampp to be installed on your system).
 4º.- Start APACHE & MySQL.
 5º.- Pick up the backend/DB file .sql and upload inside the mysql(xampp/MySQL/Admin).
